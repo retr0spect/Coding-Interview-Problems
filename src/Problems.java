@@ -75,14 +75,49 @@ public class Problems {
         isPrime.set(0, false);
         isPrime.set(1, false);
 
-        for(int i = 2; i <= n; ++i) {
-            if(isPrime.get(i)) {
+        for (int i = 2; i <= n; ++i) {
+            if (isPrime.get(i)) {
                 primes.add(i);
-                for(int j = i; j <= n; j += i) {
+                for (int j = i; j <= n; j += i) {
                     isPrime.set(j, false);
                 }
             }
         }
         return primes;
+    }
+
+    static List<Integer> spiralOrder(List<List<Integer>> matrix) {
+        List<Integer> spiralOrder = new ArrayList<>();
+        int matrixSize = matrix.size();
+        for (int i = 0; i < Math.ceil(matrixSize * 0.5); ++i) {
+            if (i == matrixSize - i - 1) {
+                spiralOrder.add(matrix.get(i).get(i));
+            }
+            for (int j = i; j < matrixSize - i - 1; ++j) {
+                spiralOrder.add(matrix.get(i).get(j));
+                spiralOrder.add(matrix.get(j).get(matrixSize - i - 1));
+            }
+            for (int j = matrixSize - i - 1; j > i; --j) {
+                spiralOrder.add(matrix.get(matrixSize - i - 1).get(j));
+                spiralOrder.add(matrix.get(j).get(i));
+            }
+        }
+        return spiralOrder;
+    }
+
+    static void rotation2d(List<List<Integer>> matrix) {
+        for(int i = 0; i < Math.ceil(matrix.size() * 0.5); i++) {
+            for(int j = i; j < matrix.size() - 1 - i; j++) {
+                int pos1 = matrix.get(i).get(j);
+                int pos2 = matrix.get(j).get(matrix.size() - 1 - i);
+                int pos3 = matrix.get(matrix.size() - 1 - i).get(matrix.size() - 1 - j);
+                int pos4 = matrix.get(matrix.size() - 1 - j).get(i);
+
+                matrix.get(i).set(j, pos4);
+                matrix.get(j).set(matrix.size() - 1 - i, pos1);
+                matrix.get(matrix.size() - 1 - i).set(matrix.size() - 1 - j, pos2);
+                matrix.get(matrix.size() - 1 - j).set(i, pos3);
+            }
+        }
     }
 }

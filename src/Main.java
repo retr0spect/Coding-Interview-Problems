@@ -1,3 +1,5 @@
+import com.sun.deploy.util.ArrayUtil;
+
 import java.util.*;
 
 public class Main {
@@ -31,15 +33,29 @@ public class Main {
         List<Integer> spiralOrder = Problems.spiralOrder(matrix3x3);
         System.out.println();*/
 
-        //6.2D array rotation by 90 degree
-        List<Integer> row1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        //6. 2D array rotation by 90 degree
+        /*List<Integer> row1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         List<Integer> row2 = new ArrayList<>(Arrays.asList(5, 6, 7, 8));
         List<Integer> row3 = new ArrayList<>(Arrays.asList(9, 10, 11, 12));
         List<Integer> row4 = new ArrayList<>(Arrays.asList(13, 14, 15, 16));
         List<List<Integer>> matrix = new ArrayList<>(Arrays.asList(row1, row2, row3, row4));
         Problems.rotation2d(matrix);
-        System.out.println();
+        System.out.println();*/
 
+        //7. Int to String
+        //String output = Problems.intToString(-123);
+
+        //8. String to Int
+        /*long output = Problems.stringToInt("123");*/
+
+        //9. Spreadsheet to int
+        //long output = Problems.spreadsheetToInt("ZZ");
+
+        //10. Palindrome
+        //boolean isPalindrome = Problems.checkPalindrome("Ray, isi, yar!");
+
+        //11. Reverse all words in a sentence
+        Problems.reverseAllWordsInSentence(new char[]{'w', 'o', 'o', ' ', 'h', 'o', 'o'});
 
 
     }

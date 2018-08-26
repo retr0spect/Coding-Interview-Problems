@@ -204,4 +204,43 @@ public class Problems {
         System.out.println();
 
     }
+
+    static String LookAndSay(int times) {
+        String output = "1";
+        for (int i = 0; i < times; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < output.length(); j++) {
+                int count = 1;
+                while (j + 1 < output.length() && output.charAt(j) == output.charAt(j + 1)) {
+                    j++;
+                    count++;
+                }
+                sb.append(count);
+                sb.append(output.charAt(j));
+            }
+            output = sb.toString();
+        }
+        return output;
+    }
+
+    static int firstOccurrenceOfSubString(String t, String s) {
+        int iteration = 0;
+        for (int i = 0; i < t.length(); ++i) {
+            int pos = i;
+            for (int j = 0; j < s.length() && pos < t.length(); j++) {
+                iteration++;
+                char t1 = t.charAt(pos);
+                char s1 = s.charAt(j);
+                if (t1 != s1) {
+                    break;
+                }
+                if (j == s.length() - 1 && t1 == s1) {
+                    return i;
+                }
+                pos++;
+            }
+        }
+        return iteration;
+        //return i;
+    }
 }

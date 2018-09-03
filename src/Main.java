@@ -1,7 +1,7 @@
 public class Main {
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         //1. Increment array of integer by 1.
         /*List<Integer> list1 = Problems.incrementArrayOfInts(new ArrayList<>(Arrays.asList(1, 2, 5)));
         List<Integer> list2 = Problems.incrementArrayOfInts(new ArrayList<>(Arrays.asList(1, 2, 9)));
@@ -56,52 +56,43 @@ public class Main {
         //int index = Problems.firstOccurrenceOfSubString("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", "aaaaaaaaaaaaaaaaaaaaaaaab");
 
         //14. Inorder Tree traversal
-        Trees.BinaryTreeNode binaryTree = generateBinaryTree();
-        System.out.println("In-Order");
-        Trees.inOrderTraversal(binaryTree);
+        //Trees.BinaryTreeNode binaryTree = generateBinaryTree();
+        //System.out.println("In-Order");
+        //Trees.inOrderTraversal(binaryTree);
 
         //15. Pre-Order Tree traversal
-        System.out.println("\nPre-Order");
-        Trees.preOrderTraversal(binaryTree);
+        //System.out.println("\nPre-Order");
+        //Trees.preOrderTraversal(binaryTree);
 
         //16. Post-Order Tree traversal
-        System.out.println("\nPost-Order");
-        Trees.postOrderTraversal(binaryTree);
+        //System.out.println("\nPost-Order");
+        //Trees.postOrderTraversal(binaryTree);
 
         //17. In-Order No-recursion
-        System.out.println("\nIn-Order Iterative");
-        Trees.inOrderTraversalNoRecursion(binaryTree);
+        //System.out.println("\nIn-Order Iterative");
+        //Trees.inOrderTraversalNoRecursion(binaryTree);
 
         //18. In-Order No-recursion
-        System.out.println("\nPre-Order Iterative");
-        Trees.preOrderTraversalNoRecursion(binaryTree);
+        //System.out.println("\nPre-Order Iterative");
+        //Trees.preOrderTraversalNoRecursion(binaryTree);
 
         //19. Post-Order No-recursion
-        System.out.println("\nPre-Order Iterative II");
-        Trees.preOrderTraversalNoRecursion2(binaryTree);
+        //System.out.println("\nPre-Order Iterative II");
+        //Trees.preOrderTraversalNoRecursion2(binaryTree);
 
-    }
+        //20. Binary Search
+        //boolean found = Searching.binarySearch(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, -1);
+        //boolean found1 = Searching.binarySearch(new int[] {1}, 1);
 
-    private static Trees.BinaryTreeNode generateBinaryTree() {
-        Trees.BinaryTreeNode root = new Trees.BinaryTreeNode(10);
+        //21. Binary Search: First Occurrence of K
+        //int firstOccurrenceOfK = Searching.firstOccurrenceOfK(new int[] {1, 2, 2, 2, 3, 4, 5, 6, 7, 8 ,9, 10}, 2);
 
-        Trees.BinaryTreeNode node1 = new Trees.BinaryTreeNode(1);
-        Trees.BinaryTreeNode node2 = new Trees.BinaryTreeNode(7);
-        Trees.BinaryTreeNode node3 = new Trees.BinaryTreeNode(5);
-        Trees.BinaryTreeNode node4 = new Trees.BinaryTreeNode(6);
-        Trees.BinaryTreeNode node5 = new Trees.BinaryTreeNode(2);
-        Trees.BinaryTreeNode node6 = new Trees.BinaryTreeNode(4);
-        Trees.BinaryTreeNode node7 = new Trees.BinaryTreeNode(3);
+        //22. Binary Search: K equals index
+        //int result = Searching.kEqualsIndex(new int[]{0, 1, 2, 4, 5, 6, 7, 13, 15, 17, 21});
 
-        root.leftChild = node1;
-        root.rightChild = node2;
-        node1.leftChild = node3;
-        node1.rightChild = node4;
-        node4.leftChild = node5;
-        node2.leftChild = node6;
-        node2.rightChild = node7;
+        //23. Binary Search: Cyclic Sorted Array
+        int result = Searching.cyclicSortedArray(new int[]{5, 6, 7, 8, 0, 1, 2, 4});
 
-        return root;
     }
 
 

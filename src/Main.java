@@ -91,7 +91,15 @@ public class Main {
         //int result = Searching.kEqualsIndex(new int[]{0, 1, 2, 4, 5, 6, 7, 13, 15, 17, 21});
 
         //23. Binary Search: Cyclic Sorted Array
-        int result = Searching.cyclicSortedArray(new int[]{5, 6, 7, 8, 0, 1, 2, 4});
+        //int result = Searching.cyclicSortedArray(new int[]{5, 6, 7, 8, 0, 1, 2, 4});
+
+        //24. Palindromic Permutations
+        //boolean result = Hashing.canFormPalindrome("edified");
+
+        //25. Anonymous Letter
+        boolean result = Hashing.anonymousLetter("adityachand", "dnachatydia");
+        boolean result1 = Hashing.anonymousLetter("adizderfvtyachand", "dnach3rvxbtyb4ybrbfvgvatydia");
+        System.out.println(result + "\n" + result1);
 
     }
 

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
 
 
@@ -97,9 +99,22 @@ public class Main {
         //boolean result = Hashing.canFormPalindrome("edified");
 
         //25. Anonymous Letter
-        boolean result = Hashing.anonymousLetter("adityachand", "dnachatydia");
-        boolean result1 = Hashing.anonymousLetter("adizderfvtyachand", "dnach3rvxbtyb4ybrbfvgvatydia");
-        System.out.println(result + "\n" + result1);
+        //boolean result = Hashing.anonymousLetter("adityachand", "dnachatydia");
+        //boolean result1 = Hashing.anonymousLetter("adizderfvtyachand", "dnach3rvxbtyb4ybrbfvgvatydia");
+
+        //26. LRU Cache
+        //Hashing.LRUCache cache = new Hashing.LRUCache(100);
+
+        //27. Nearest related entries
+        //int distance = Hashing.nearestRelatedEntries(Arrays.asList("all", "work", "and", "aditya", "play",
+        //        "makes", "for", "no", "work", "play", "its", "fun", "and", "no", "results"));
+
+        //28. Longest sub array with distinct entries
+        //int result = Hashing.longestSubArrayWithDistinctEntries(new int[]{1, 2, 1, 3, 4, 5, 1, 5, 4});
+
+        //29. Longest contained interval
+        int result = Hashing.longestContainedRange(Arrays.asList(3, -2, 7, 9, 8, 1, 2, 0, -1, 5, 8, 4));
+        System.out.println(result);
 
     }
 

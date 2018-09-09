@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Aditya on 9/5/2018.
@@ -37,5 +36,86 @@ class Hashing {
             }
         }
         return charFreq.isEmpty();
+    }
+
+    static int nearestRelatedEntries(List<String> words) {
+        Map<String, Integer> wordToIndex = new HashMap<>();
+        int minDistance = Integer.MAX_VALUE;
+        for (int i = 0; i < words.size(); i++) {
+            if (!wordToIndex.containsKey(words.get(i))) {
+                wordToIndex.put(words.get(i), i);
+            } else {
+                minDistance = Math.min(i - wordToIndex.get(words.get(i)), minDistance);
+                wordToIndex.put(words.get(i), i);
+            }
+        }
+        return minDistance;
+    }
+
+    static int longestSubArrayWithDistinctEntries(int[] array) {
+        Map<Integer, Integer> mostRecentOccurrence = new HashMap<>();
+        int longestDupeFreeSubArrayStartIndex = 0, result = 0;
+        for (int i = 0; i < array.length; i++) {
+            Integer dupeIndex = mostRecentOccurrence.put(array[i], i);
+            if (dupeIndex != null) {
+                if (dupeIndex >= longestDupeFreeSubArrayStartIndex) {
+                    result = Math.max(result, i - longestDupeFreeSubArrayStartIndex);
+                    longestDupeFreeSubArrayStartIndex = dupeIndex + 1;
+                }
+            }
+        }
+        result = Math.max(result, array.length - longestDupeFreeSubArrayStartIndex);
+        return result;
+    }
+
+    static int longestContainedRange(List<Integer> numbers) {
+        Set<Integer> unprocessedEntries = new HashSet<>(numbers);
+        int maxIntervalSize = 0;
+        while (!unprocessedEntries.isEmpty()) {
+            int number = unprocessedEntries.iterator().next();
+            unprocessedEntries.remove(number);
+
+            int lower = number - 1;
+            while (unprocessedEntries.contains(lower)) {
+                unprocessedEntries.remove(lower);
+                lower--;
+            }
+
+            int upper = number + 1;
+            while (unprocessedEntries.contains(upper)) {
+                unprocessedEntries.remove(upper);
+                upper++;
+            }
+            maxIntervalSize = Math.max(maxIntervalSize, upper - lower - 1);
+        }
+        return maxIntervalSize;
+    }
+
+    static class LRUCache {
+        private Map<Integer, Integer> isbnToPrice;
+
+        public LRUCache(int cacheSize) {
+            isbnToPrice = new LinkedHashMap<Integer, Integer>(cacheSize, 1.0f, true) {
+                @Override
+                protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+                    return this.size() > cacheSize;
+                }
+            };
+        }
+
+        public Integer lookUp(Integer key) {
+            return isbnToPrice.get(key);
+        }
+
+        public void insert(Integer key, Integer value) {
+            if (!isbnToPrice.containsKey(key)) {
+                isbnToPrice.put(key, value);
+            }
+        }
+
+        public Integer erase(Integer key) {
+            return isbnToPrice.remove(key);
+        }
+
     }
 }
